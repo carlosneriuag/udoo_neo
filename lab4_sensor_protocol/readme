@@ -1,36 +1,31 @@
-Test app for lab 4.
+# Lab4 Sensor Protocol
 
-To execute use:
+## Overview
+Application to exercise Lab4 server. 
 
-./SensorShell <threads> <serverip> <serverport>
+## Requierements
+Readline development package is required to run this application. Install it via apt-get:
 
-threads     = amount of client threads to create
-serverip    = remote server IP
-server port = remote listening port
+```
+sudo apt-get install libreadline6 libreadline6-dev
+```
 
-Once the threads are created a shell is provided. Current commands available:
+## Example
+Follow the next steps to run the example:
 
-disconnect = not implemented
-accelerometer <axis> = request an accelerometer axis based on the parameter
-magnetometer <axis>  = request a magnetometer axis based on the parameter 
-gyroscope <axis>     = request a gyro axis based on the parameter
-wrongs               = generates a frame with a wrong sensor parameter
-wrongcs              = generates a frame with wrong checksum
-wrongax              = generates a frame with a wrong axis parameter
-help                 = lists the commands available
+1. Compile it via   ```make```
+2. Execute with the following command 
+```./lab4_sensor_protocol <# clients> <serverip> <serverport>```
+3. A welcome message and prompt is shown
+```
+     ## # # ### #   #
+    #   # # #   #   #
+     #  ### ##  #   #
+      # # # #   #   #
+    ##  # # ### ### ###
+     Nov  9 2018
+lab4>
+```
+4. Type ```help``` for a list of available commands
 
-Each time a command is executed, each thread shows the response received from
-the server.
-
-An 8 seconds delay is added after each command is executed. Enter a new command
-just after the command prompt "UAG>" appears. 
-
-------------------------------------------------------------
-log
-------------------------------------------------------------
-v0.1 - Initial release
-v0.2 - Fixed issues with generating wrong CS, Sensor and axis. 
-	   Added command for wrong SOF
-	   Disconnect command deprecated
-	   Client now calculates checksum and prints result when no error frame is
-	   received
+5. If you want a verbose version of the application, just compile the debug rule ```make debug```
